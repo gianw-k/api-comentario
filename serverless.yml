@@ -41,13 +41,13 @@ resources:
             KeyType: RANGE
         # Set the capacity to auto-scale
         BillingMode: PAY_PER_REQUEST
-IngestBucket:
-  Type: AWS::S3::Bucket
-  Properties:
-    BucketName: ${self:service}-ingest-${sls:stage}
-    PublicAccessBlockConfiguration:
-      BlockPublicAcls: true
-      BlockPublicPolicy: true
-      IgnorePublicAcls: true
-      RestrictPublicBuckets: true
-  DeletionPolicy: Retain
+    IngestBucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: ${self:service}-ingest-${sls:stage}
+        PublicAccessBlockConfiguration:
+          BlockPublicAcls: true
+          BlockPublicPolicy: true
+          IgnorePublicAcls: true
+          RestrictPublicBuckets: true
+      DeletionPolicy: Retain
