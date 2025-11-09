@@ -6,8 +6,11 @@ import json
 def lambda_handler(event, context):
     # Entrada (json)
     print(event)
-    tenant_id = event['body']['tenant_id']
-    texto = event['body']['texto']
+    body = event.get('body', '{}')
+    if isinstance(body, str):
+        body = json.loads(body)
+    tenant_id = body.get('tenant_id', '')
+    texto = body.get('texto', '')
     nombre_tabla = os.environ["TABLE_NAME"]
     # Proceso
     uuidv1 = str(uuid.uuid1())
