@@ -11,7 +11,7 @@ provider:
     role: arn:aws:iam::586324269237:role/LabRole	
   environment:
     TABLE_NAME: ${sls:stage}-t_comentarios
-    INGEST_BUCKET: ${self:service}-ingest-${sls:stage}
+    INGEST_BUCKET: ${self:service}-ingestaedo-${sls:stage}
 
 functions:
   crear:
@@ -44,7 +44,7 @@ resources:
     IngestBucket:
       Type: AWS::S3::Bucket
       Properties:
-        BucketName: ${self:service}-ingest-${sls:stage}
+        BucketName: ${self:service}-ingestaedo-${sls:stage}
         PublicAccessBlockConfiguration:
           BlockPublicAcls: true
           BlockPublicPolicy: true
